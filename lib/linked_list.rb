@@ -131,8 +131,8 @@ end
       puts insertion_index
     while insertion_index > 0 && value_to_insert < item.payload
       @array.push( value_to_insert, value_to_compare)#, value_to_insert)
-      sorted = @array[insertion_index - 1]
-      @array #"[\"foo\", \"bar\"]"
+      sorted = @array[0]
+      return sorted
         return "| " + value_to_insert+", " + item.payload+ " |"
         index +=1
         # item = item.next_list_item
