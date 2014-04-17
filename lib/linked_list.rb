@@ -5,6 +5,7 @@ class LinkedList   #?'s line 29
   def initialize(*payloads) #*args is not passed in until test 16  the star allows you to add an entire array into to payload
     @size = 0 #sets size to 0
     payloads.each{|payload| add_item(payload)} # this takes the seed argument and iterates over it if it's an array passing it one item at a time into add_item method
+    @array = []
   end
 
   def add_item(payload) #defines method add_item which will add an item to the link list by passing a payload in to the new items
@@ -37,8 +38,10 @@ class LinkedList   #?'s line 29
         #  puts"((((((((((((((item.next_list_Item)))))))))))))"
         puts item.payload
       end
+
       item.payload = value #returns item.payload in the variable value
-      puts value
+      # puts '((((((((((((((((((((value))))))))))))))))))))'
+      # puts value
     end
 
   def last #defines last object finds the last by counting back from size which will be at the count of the objects, then stop when you get to zero and returns nil
@@ -107,13 +110,6 @@ end
     nil
   end
 
-  def sort
-    return self
-    # "| |"
-    # item = @first_item.to_s
-    # return item
-  end
-
   def sorted?
     item = @first_item
     until item.nil? or item.last?
@@ -123,6 +119,109 @@ end
     end
     true
   end
+
+  def sort
+    (1...@size).each do |i|
+      item = @first_item
+      return self if item.nil?
+      value_to_insert = get(i)
+      value_to_compare = item.payload
+      index = indexOf(item.payload)
+      insertion_index = i
+      puts insertion_index
+    while insertion_index > 0 && value_to_insert < item.payload
+      @array.push( value_to_insert, value_to_compare)#, value_to_insert)
+      sorted = @array[insertion_index - 1]
+      @array #"[\"foo\", \"bar\"]"
+        return "| " + value_to_insert+", " + item.payload+ " |"
+        index +=1
+        # item = item.next_list_item
+    end
+      item = item.next_list_item
+  end
+  self
+end
+# if item > item.next_list_item
+
+# if value to insert > item
+#   value
+# index += 1
+# puts @first_item
+# breaks code: value_to_insert.next_list_item
+  #     if item > item.next_list_item
+  #       swap(item)
+  #       sort
+  #     else
+  #       item = item.next_list_item
+  #     end
+  #   end
+  #   self
+  # end
+#     index = 0
+#     # item = nil
+#     if index === 0
+#       item = self
+#       else
+#       item = @first_item
+#       index += 1
+#     # item = item.next_list_item
+#     puts "(((((((((())))))))))"
+#     puts index
+#     puts item
+#     until item.nil? or item.last?
+#       return false if item > item.next_list_item
+#       item = item.next_list_item
+#   if index === 0
+#     item = self
+#   until item.nil? or item.last?
+#     # until
+#   # elsif index < 1
+#     # sorted = index
+#     # item
+#     end
+#   end
+# end
+    # item.each{|i| }
+    # payloads.each{|payload| add_item(payload)} # this takes the seed argument and iterates over it if it's an array passing it one item at a time into add_item method
+
+
+#     while index > 0
+#     puts "(((((((((((((((())))))))))))))))"
+#     index
+#     return item
+#     until item.nil? or item.last?
+#     item = item.next_list_item
+#     index += 1
+#     puts "(((((((((((((((())))))))))))))))"
+#     puts item, index
+# end
+
+
+    #
+    # item = @first_item
+
+    # return index.to_string
+    # return item.to_s
+    # until item.nil? or item.last?
+
+      # sorted = @
+      # while
+  #   end
+# end/
+
+
+    # (1..list.length -1).each do |i|
+    #   value = list[i]
+    #   j = i - 1
+    #   while j >= 0 && list [j] > value do
+    #     list[j+1] = value
+    #     j -= 1
+    #   end
+    #   list[j + 1] = value
+    # end
+    # list
+  # end
+
 
   private
   def get_item(i)
